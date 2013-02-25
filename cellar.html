@@ -1,0 +1,173 @@
+
+
+<head>
+  <title>cellar</title>
+<link rel="stylesheet" href="css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="css/dialog.css" />
+   <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+   <script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>  
+
+</head>
+
+<body>
+  {{> hello}}
+  
+</body>
+
+<template name="hello">
+  <div class="bar-container">
+  	<div class="container">
+		<a class="brand" href="#/home">Meteor Cellar</a>
+		<div class="add-wine">
+       		<a class="add" href="#/addwine">Add Wine</a>
+       	</div>
+    </div>
+  		
+  </div>
+  <div class="wine-main">
+  	 
+      {{> container}}
+    
+  </div>
+  
+</template>
+
+<!--<template name="main">
+	<div class="wine-container">
+    	<div class="wine-info">
+        	<img src="file:///C|/Users/snowflax/Desktop/Krunal Shah/Meteor/task/images/argiano.jpg" >
+         </div>  
+    </div>
+</template>-->
+
+<template name="container">
+  <div class="wine-row">
+  	<div class="content">
+    	<ul class="wine-small">       	
+         	{{#each wines}}
+            	{{> wine}}
+                
+   			{{/each}}               	    
+         </ul>
+         {{> wineDetail}}
+    </div>
+   <!-- <div class="pagination pagination-centered"><ul><li class="active"><a href="javascript:void(0);"></a></li></ul></div>-->
+  </div>
+  
+</template>
+
+<template name="wine">
+
+<li class="wine1 thumbnail-small">
+    <a class="thumbnail-small" href="#/wines/{{current_id}}">
+		<img id="{{_id}}" height="150" width="125" src='images/{{current_id}}.jpg'>
+        <h5>{{name}}</h5>
+        <div class="paragprah">
+        	<p>
+            	<span class="year">{{year}}</span> <span class="grapes">{{grapes}}</span><br>
+                <i class="icon-globe"></i>
+                <span class="region">{{region}}</span>,<span class="country">{{country}}</span>
+            </p>
+       	</div>
+    </a>
+</li>   
+      
+</template>
+
+<template name="wineDetail">
+	<div class="main-row">
+    	<div class="header">
+        	<fieldset>
+            	<legend>Wine Details</legend>
+                <br>
+				<div class="main-details">
+                	<div class="details">
+                  		<div class="info">
+                        	<label class="info-label"> Id: </label>
+                            <div class="info-input">
+                            	<input class="input-id" id="input-id" disabled="" value="" name="{{_id}}">
+                            </div> 
+                        </div>
+                        <div class="info">
+                        	<label class="info-label">Name:</label>
+                            <div class="info-input">
+                            	<input id="input-name" class="input-name" name="name" type="text" value="">
+                            </div>
+                        </div>
+                         <div class="info">
+                        	<label class="info-label">Grapes:</label>
+                            <div class="info-input">
+                            	<input id="input-grapse" class="input-grapes" name="grape" type="t value="">
+                            </div>
+                        </div>
+                         <div class="info">
+                        	<label class="info-label">Country:</label>
+                            <div class="info-input">
+                            	<input id="input-country" class="input-country" name="country" type="text" value="">
+                            </div>
+                        </div>
+                         <div class="info">
+                        	<label class="info-label">Region:</label>
+                            <div class="info-input">
+                            	<input id="input-region" class="input-region" name="region" type="text" value="">
+                            </div>
+                        </div>
+                         <div class="info">
+                        	<label class="info-label">Year:</label>
+                            <div class="info-input">
+                            	<select id="input-year" class="input-year" name="year" value="">
+                                	<option>2012</option>
+                                    <option>2011</option>
+                                    <option>2010</option>
+                                    <option>2009</option>
+                                    <option>2008</option>
+                                    <option>2007</option>
+                                </select>
+                            </div>
+                        </div>
+                         <div class="info">
+                        	<label class="info-label">Notes:</label>
+                            <div class="info-input">
+                            	<textarea id="input-note" class="input-note" rows="6" name="note" width="450px"></textarea>
+                            </div>
+                        </div>                        
+                  	</div>
+                	<div class="picture">
+                    	<div class="picture-info">
+                        	<p>
+                            	<img id="picture-info-id" src="">
+                            </p>
+                            <p>
+                            	To change the picture, drag a new picture from your file system onto the box above.
+                            </p>
+                        </div>
+                	</div>
+                 </div>
+            </fieldset>
+            <div class="save">
+            	<a class="button-save" id="" name="" href="javascript:void(0);">Save</a>
+                <a class="button-add" id="" name="" href="javascript:void(0);">Add</a>
+                <a class="button-delete button" name="" href="javascript:void(0);">Delete</a>
+            </div>
+            <div class="status-bar">
+    			<div class="inner-status-bar">
+        			<div style="" class="alert-success"><strong>Success!</strong> Wine saved successfully</div>
+    			</div>
+			</div>
+        </div>
+    </div>
+    <div id="dialog-confirm" style="height:55px" title="">
+  <p style="position: relative;"><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span></p>
+</div>
+<!--<div id="dialog-overlay"></div>
+<div id="dialog-box">
+    <div class="dialog-content">
+        <div id="dialog-message"></div>
+        <a id="" href="javascript:void(0);" class="button-yes">Yes</a>
+        <a name="" href="javascript:void(0);" class="button-no">No</a>
+    </div>
+</div>-->
+ 
+
+ 
+</template>
